@@ -20,7 +20,7 @@ body {
   max-width: $calendarWidth;
   height: fit-content;
 
-  $daysOfWeek: 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat';
+  $daysOfWeek: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun';
 
   @each $day in $daysOfWeek {
     &--start-day-#{$day} {
@@ -35,7 +35,7 @@ body {
   @for $date from 28 through 31 {
     &--month-length-#{$date} {
       :nth-child(n + #{$date + 1}) {
-        visibility: hidden;
+        display: none;
       }
     }
   }
@@ -49,6 +49,13 @@ body {
     background-color: #eee;
     justify-content: center;
     align-items: center;
+    transition: all 0.5s;
+  }
+
+  &__day:hover {
+    cursor: pointer;
+    background-color: #ffbfcb;
+    transform: translateY(-20px);
   }
 
   @for $day from 1 through $calendarLength {
@@ -58,15 +65,5 @@ body {
       font-family: Arial, Helvetica, sans-serif;
       font-size: 30px;
     }
-  }
-
-  &__day:hover {
-    transition:
-      transform 0.5s,
-      background-color 0.5s,
-      cursor 0.5s;
-    cursor: pointer;
-    background-color: #ffbfcb;
-    transform: translateY(-20px);
   }
 }
