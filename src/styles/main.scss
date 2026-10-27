@@ -20,7 +20,7 @@ body {
   max-width: $calendarWidth;
   height: fit-content;
 
-  $daysOfWeek: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun';
+  $daysOfWeek: 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat';
 
   @each $day in $daysOfWeek {
     &--start-day-#{$day} {
@@ -49,7 +49,7 @@ body {
     background-color: #eee;
     justify-content: center;
     align-items: center;
-    transition-delay: 500ms;
+    transition: all 0.5s;
   }
 
   @for $day from 1 through $calendarLength {
